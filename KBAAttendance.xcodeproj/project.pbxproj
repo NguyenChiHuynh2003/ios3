@@ -18,6 +18,12 @@
 		AD8365BB69365F0532CD4A99 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E64DE5CFE8B9506C57148 /* LoginScreen.swift */; };
 		C5D3BDA572E4C68ECF79BA1E /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E40A5C28F2F2B7CC67DC26 /* SessionStore.swift */; };
 		BCDEA934D2501353B4C4CE9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFDBAC21689581B04CB7ABB5 /* Assets.xcassets */; };
+		B1000001B000000000000001 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000001B000000000000001 /* SoundManager.swift */; };
+		B1000002B000000000000002 /* message_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A1000002B000000000000002 /* message_sound.mp3 */; };
+		B1000003B000000000000003 /* CreateLeaveScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000003B000000000000003 /* CreateLeaveScreen.swift */; };
+		B1000004B000000000000004 /* ChatListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000004B000000000000004 /* ChatListScreen.swift */; };
+		B1000005B000000000000005 /* ChatRoomScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000005B000000000000005 /* ChatRoomScreen.swift */; };
+		B1000006B000000000000006 /* NewChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000006B000000000000006 /* NewChatScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		AD7E64DE5CFE8B9506C57148 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		53E40A5C28F2F2B7CC67DC26 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		CFDBAC21689581B04CB7ABB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1000001B000000000000001 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		A1000002B000000000000002 /* message_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = message_sound.mp3; sourceTree = "<group>"; };
+		A1000003B000000000000003 /* CreateLeaveScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLeaveScreen.swift; sourceTree = "<group>"; };
+		A1000004B000000000000004 /* ChatListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListScreen.swift; sourceTree = "<group>"; };
+		A1000005B000000000000005 /* ChatRoomScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomScreen.swift; sourceTree = "<group>"; };
+		A1000006B000000000000006 /* NewChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +81,8 @@
 				7D21020A988B0D74C584A014 /* Config.swift */,
 				6B7A982E27D7C68071EA293E /* KBAAttendanceApp.swift */,
 				53E40A5C28F2F2B7CC67DC26 /* SessionStore.swift */,
+				A1000001B000000000000001 /* SoundManager.swift */,
+				A1000002B000000000000002 /* message_sound.mp3 */,
 				90506DDD11CE663CE24A7A5F /* Api */,
 				D61F0ED9BCD8264F492454E8 /* Screens */,
 				CFDBAC21689581B04CB7ABB5 /* Assets.xcassets */,
@@ -94,6 +108,10 @@
 				F1F66A9F371B8F37016EC4B4 /* HomeScreen.swift */,
 				53530851BCCC68A7FC22E53A /* LeaveScreen.swift */,
 				AD7E64DE5CFE8B9506C57148 /* LoginScreen.swift */,
+				A1000003B000000000000003 /* CreateLeaveScreen.swift */,
+				A1000004B000000000000004 /* ChatListScreen.swift */,
+				A1000005B000000000000005 /* ChatRoomScreen.swift */,
+				A1000006B000000000000006 /* NewChatScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -158,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCDEA934D2501353B4C4CE9F /* Assets.xcassets in Resources */,
+				B1000002B000000000000002 /* message_sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +197,11 @@
 				BA10EA09663EEFD1E7D54597 /* LeaveScreen.swift in Sources */,
 				AD8365BB69365F0532CD4A99 /* LoginScreen.swift in Sources */,
 				C5D3BDA572E4C68ECF79BA1E /* SessionStore.swift in Sources */,
+				B1000001B000000000000001 /* SoundManager.swift in Sources */,
+				B1000003B000000000000003 /* CreateLeaveScreen.swift in Sources */,
+				B1000004B000000000000004 /* ChatListScreen.swift in Sources */,
+				B1000005B000000000000005 /* ChatRoomScreen.swift in Sources */,
+				B1000006B000000000000006 /* NewChatScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

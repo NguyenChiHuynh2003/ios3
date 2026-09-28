@@ -45,3 +45,111 @@ struct LeaveRequest: Codable, Identifiable {
     let approved_at: String?
     let created_at: String?
 }
+
+struct CreateLeavePayload: Codable {
+    let employee_id: String
+    let leave_type: String
+    let start_date: String
+    let end_date: String
+    let time_period: String?
+    let start_time: String?
+    let end_time: String?
+    let shift_info: String?
+    let reason: String?
+    let notes: String?
+    let approver_id: String?
+    let notification_recipients: [String]?
+    let status: String
+}
+
+// MARK: - Chat Models
+
+struct ChatMember: Codable {
+    let user_id: String
+    let full_name: String?
+    let last_read_at: String?
+}
+
+struct ChatLastMessage: Codable {
+    let content: String?
+    let attachment_name: String?
+    let sender_id: String?
+    let created_at: String?
+}
+
+struct ChatConversation: Codable, Identifiable {
+    let id: String
+    var is_group: Bool?
+    var name: String?
+    var last_message_at: String?
+    var created_by: String?
+    var members: [ChatMember]?
+    var last_message: ChatLastMessage?
+    var unread_count: Int?
+    var display_name: String?
+
+    // Custom decode to handle numeric unread_count whether Int or Double or 0
+    enum CodingKeys: String, CodingKey {
+        case id, is_group, name, last_message_at, created_by, members, last_message, unread_count, display_name
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        is_group = try container.decodeIfPresent(Bool.self, forKey: .is_group)
+        name = try container.decodeIfPresent(String.self, forKey: .name)
+        last_message_at = try container.decodeIfPresent(String.self, forKey: .last_message_at)
+        created_by = try container.decodeIfPresent(String.self, forKey: .created_by)
+        members = try container.decodeIfPresent([ChatMember].self, forKey: .members)
+        last_message = try container.decodeIfPresent(ChatLastMessage.self, forKey: .last_message)
+        display_name = try container.decodeIfPresent(String.self, forKey: .display_name)
+        
+        if let count = try? container.decodeIfPresent(Int.self, forKey: .unread_count) {
+            unread_count = count
+        } else if let countDouble = try? container.decodeIfPresent(Double.self, forKey: .unread_count) {
+            unread_count = Int(countDouble)
+        } else {
+            unread_count = 0
+        }
+    }
+
+    func resolvedTitle(myUserId: String) -> String {
+        if let d = display_name, !d.trimmingCharacters(in: .whitespaces).isEmpty {
+            return d
+        }
+        if let n = name, !n.trimmingCharacters(in: .whitespaces).isEmpty {
+            return n
+        }
+        if let other = members?.first(where: { $0.user_id != myUserId }), let fn = other.full_name, !fn.isEmpty {
+            return fn
+        }
+        return "Chat"
+    }
+}
+
+struct ChatMessage: Codable, Identifiable, Equatable {
+    let id: String
+    let conversation_id: String
+    let sender_id: String
+    var content: String?
+    var attachment_url: String?
+    var attachment_name: String?
+    var attachment_type: String?
+    var created_at: String?
+    var edited_at: String?
+    var deleted_at: String?
+}
+
+struct ProfileLite: Codable, Identifiable {
+    let id: String
+    let full_name: String?
+}
+
+struct ChatSendPayload: Codable {
+    let conversation_id: String
+    let sender_id: String
+    let content: String?
+    var attachment_url: String? = nil
+    var attachment_name: String? = nil
+    var attachment_type: String? = nil
+}

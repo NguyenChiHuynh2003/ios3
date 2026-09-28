@@ -90,6 +90,9 @@ struct HomeScreen: View {
                     NavigationLink(destination: HistoryScreen()) {
                         navRow(icon: "clock.arrow.circlepath", title: "Lịch sử chấm công", sub: "Tháng hiện tại")
                     }
+                    NavigationLink(destination: ChatListScreen()) {
+                        navRow(icon: "bubble.left.and.bubble.right", title: "Chat nội bộ", sub: "Trò chuyện với đồng nghiệp")
+                    }
                     NavigationLink(destination: GuideScreen()) {
                         navRow(icon: "questionmark.circle", title: "Hướng dẫn sử dụng", sub: "Cách dùng app KBA Chấm công")
                     }

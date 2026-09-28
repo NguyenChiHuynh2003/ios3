@@ -150,4 +150,115 @@ actor SupabaseApi {
         guard (200..<300).contains(http.statusCode) else { return [] }
         return (try? decoder.decode([AttendanceRecord].self, from: data)) ?? []
     }
+
+    // MARK: - Leave Requests
+    func createLeaveRequest(payload: CreateLeavePayload) async throws {
+        let url = URL(string: "\(Config.supabaseURL)/rest/v1/leave_requests")!
+        let body = try encoder.encode(payload)
+        let (data, http) = try await executeAuthed { t in
+            self.makeRequest(url, method: "POST", token: t, body: body, prefer: "return=minimal")
+        }
+        guard (200..<300).contains(http.statusCode) else {
+            let errStr = String(data: data, encoding: .utf8) ?? ""
+            throw SupabaseError.http(http.statusCode, "Lỗi tạo đơn: \(errStr)")
+        }
+    }
+
+    // MARK: - Chat APIs
+    func getConversations() async throws -> [ChatConversation] {
+        let url = URL(string: "\(Config.supabaseURL)/rest/v1/rpc/chat_get_conversations")!
+        let body = "{}".data(using: .utf8)
+        let (data, http) = try await executeAuthed { t in
+            self.makeRequest(url, method: "POST", token: t, body: body)
+        }
+        guard (200..<300).contains(http.statusCode) else { return [] }
+        return (try? decoder.decode([ChatConversation].self, from: data)) ?? []
+    }
+
+    func createDirect(otherUserId: String) async throws -> String? {
+        let url = URL(string: "\(Config.supabaseURL)/rest/v1/rpc/chat_create_direct")!
+        let body = try JSONSerialization.data(withJSONObject: ["p_other": otherUserId])
+        let (data, http) = try await executeAuthed { t in
+            self.makeRequest(url, method: "POST", token: t, body: body)
+        }
+        guard (200..<300).contains(http.statusCode) else { return nil }
+        if let str = String(data: data, encoding: .utf8)?.trimmingCharacters(in: CharacterSet(charactersIn: "\"\n\r ")) {
+            return str.isEmpty ? nil : str
+        }
+        return nil
+    }
+
+    func createGroup(name: String, members: [String]) async throws -> String? {
+        let url = URL(string: "\(Config.supabaseURL)/rest/v1/rpc/chat_create_group")!
+        let body = try JSONSerialization.data(withJSONObject: ["p_name": name, "p_members": members])
+        let (data, http) = try await executeAuthed { t in
+            self.makeRequest(url, method: "POST", token: t, body: body)
+        }
+        guard (200..<300).contains(http.statusCode) else { return nil }
+        if let str = String(data: data, encoding: .utf8)?.trimmingCharacters(in: CharacterSet(charactersIn: "\"\n\r ")) {
+            return str.isEmpty ? nil : str
+        }
+        return nil
+    }
+
+    func markAsRead(conversationId: String) async throws {
+        let url = URL(string: "\(Config.supabaseURL)/rest/v1/rpc/chat_mark_as_read")!
+        let body = try JSONSerialization.data(withJSONObject: ["p_conversation_id": conversationId])
+        _ = try? await executeAuthed { t in
+            self.makeRequest(url, method: "POST", token: t, body: body)
+        }
+    }
+
+    func getUnreadCount() async throws -> Int {
+        let url = URL(string: "\(Config.supabaseURL)/rest/v1/rpc/chat_get_unread_count")!
+        let body = "{}".data(using: .utf8)
+        let (data, http) = try await executeAuthed { t in
+            self.makeRequest(url, method: "POST", token: t, body: body)
+        }
+        guard (200..<300).contains(http.statusCode) else { return 0 }
+        let s = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        return Int(s) ?? 0
+    }
+
+    func getMessages(conversationId: String, limit: Int = 100) async throws -> [ChatMessage] {
+        let urlStr = "\(Config.supabaseURL)/rest/v1/chat_messages?conversation_id=eq.\(conversationId)&select=*&order=created_at.desc&limit=\(limit)"
+        let url = URL(string: urlStr)!
+        let (data, http) = try await executeAuthed { t in
+            self.makeRequest(url, method: "GET", token: t)
+        }
+        guard (200..<300).contains(http.statusCode) else { return [] }
+        let msgs = (try? decoder.decode([ChatMessage].self, from: data)) ?? []
+        return msgs.reversed()
+    }
+
+    func sendMessage(payload: ChatSendPayload) async throws -> Bool {
+        let url = URL(string: "\(Config.supabaseURL)/rest/v1/chat_messages")!
+        let body = try encoder.encode(payload)
+        let (data, http) = try await executeAuthed { t in
+            self.makeRequest(url, method: "POST", token: t, body: body, prefer: "return=minimal")
+        }
+        return (200..<300).contains(http.statusCode)
+    }
+
+    func getActiveUsers(excludeUserId: String?) async throws -> [ProfileLite] {
+        let urlStr = "\(Config.supabaseURL)/rest/v1/employees?is_active=eq.true&user_id=not.is.null&select=user_id,full_name&order=full_name.asc&limit=500"
+        let url = URL(string: urlStr)!
+        let (data, http) = try await executeAuthed { t in
+            self.makeRequest(url, method: "GET", token: t)
+        }
+        guard (200..<300).contains(http.statusCode) else { return [] }
+        guard let arr = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] else { return [] }
+        var list: [ProfileLite] = []
+        var seen = Set<String>()
+        for obj in arr {
+            guard let uid = obj["user_id"] as? String, !uid.isEmpty, uid != "null" else { continue }
+            if let exc = excludeUserId, uid == exc { continue }
+            if seen.contains(uid) { continue }
+            seen.insert(uid)
+            let name = obj["full_name"] as? String
+            list.append(ProfileLite(id: uid, full_name: name))
+        }
+        return list
+    }
 }
+

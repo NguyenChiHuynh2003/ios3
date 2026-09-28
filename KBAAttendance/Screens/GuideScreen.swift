@@ -5,17 +5,19 @@ struct GuideScreen: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 section("1. Đăng nhập",
-                        "Dùng đúng email + mật khẩu nội bộ KBA (giống tài khoản trên kba2018.vn/noi-bo).")
-                section("2. Chấm công hôm nay",
-                        "Mở app → nhấn nút Chấm công. Giờ vào lấy theo giờ Việt Nam, giờ ra mặc định 17:00. Mỗi ngày chỉ chấm 1 lần.")
-                section("3. Đi công tác (ngoài site)",
-                        "Bật công tắc “Đi công tác” trước khi bấm Chấm công nếu hôm đó làm việc ngoài văn phòng.")
-                section("4. Đơn nghỉ phép",
-                        "Xem trạng thái Chờ duyệt / Đã duyệt / Từ chối các đơn đã gửi.")
+                        "• Mở app KBA Chấm công.\n• Nhập Email và Mật khẩu của tài khoản nội bộ kba2018.vn.\n• Bấm \"Đăng nhập\". Nếu quên mật khẩu, liên hệ Quản trị viên (Admin) để được cấp lại.")
+                section("2. Chấm công hằng ngày",
+                        "• Sau khi đăng nhập, bạn sẽ thấy thẻ \"Chấm công hôm nay\".\n• (Tuỳ chọn) Bật \"Đi công tác (ngoài site)\" nếu làm việc ngoài văn phòng.\n• (Tuỳ chọn) Nhập ghi chú nếu cần.\n• Bấm \"Chấm công\": Giờ vào lấy theo thời điểm bấm, giờ ra mặc định 17:00.\n• Mỗi ngày chỉ chấm công 1 lần.")
+                section("3. Đơn nghỉ phép",
+                        "• Bấm \"Đơn nghỉ phép\" trên màn hình chính.\n• Xem danh sách đơn và trạng thái duyệt (Chờ duyệt, Đã duyệt, Từ chối).\n• Bấm nút \"+\" ở góc trên bên phải để tạo đơn nghỉ phép mới (chọn loại đơn, hình thức cả ngày/nửa ngày/theo giờ, ngày giờ và lý do).")
+                section("4. Chat nội bộ",
+                        "• Bấm \"Chat nội bộ\" để trò chuyện với đồng nghiệp hoặc tạo nhóm chat công việc.\n• Nhận thông báo âm thanh chuông khi có tin nhắn mới theo thời gian thực.")
                 section("5. Lịch sử chấm công",
-                        "Xem toàn bộ ngày đã chấm công trong tháng hiện tại.")
+                        "• Bấm \"Lịch sử chấm công\" để xem các bản ghi chấm công của tháng hiện tại.\n• Dữ liệu đồng bộ theo thời gian thực với hệ thống.")
                 section("6. Đăng xuất",
-                        "Bấm nút Đăng xuất ở góc trên bên phải màn hình chính.")
+                        "• Bấm icon đăng xuất ở góc trên bên phải màn hình chính.")
+                section("7. Hỗ trợ",
+                        "• Website nội bộ: https://kba2018.vn/noi-bo\n• Mọi vấn đề về tài khoản, dữ liệu chấm công: liên hệ phòng HR.\n• Lỗi kỹ thuật: liên hệ bộ phận IT của công ty.")
             }
             .padding()
         }
@@ -24,9 +26,9 @@ struct GuideScreen: View {
     }
 
     private func section(_ title: String, _ body: String) -> some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title).font(.headline)
-            Text(body).font(.body).foregroundColor(.secondary)
+        VStack(alignment: .leading, spacing: 6) {
+            Text(title).font(.headline).foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
+            Text(body).font(.subheadline).foregroundColor(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
