@@ -153,3 +153,63 @@ struct ChatSendPayload: Codable {
     var attachment_name: String? = nil
     var attachment_type: String? = nil
 }
+
+// MARK: - Equipment & Tools Models
+
+struct EquipmentItem: Codable, Identifiable {
+    let id: String
+    let asset_id: String
+    let asset_name: String
+    var asset_type: String?
+    var brand: String?
+    var unit: String?
+    var stock_quantity: Double?
+    var allocated_quantity: Double?
+    var warehouse_name: String?
+    var physical_status: String?
+    var current_status: String?
+    var serial_number: String?
+    var supplier: String?
+    var notes: String?
+    var created_at: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id, asset_id, asset_name, asset_type, brand, unit
+        case stock_quantity, allocated_quantity, warehouse_name
+        case physical_status, current_status, serial_number, supplier, notes, created_at
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        asset_id = (try? container.decode(String.self, forKey: .asset_id)) ?? ""
+        asset_name = (try? container.decode(String.self, forKey: .asset_name)) ?? ""
+        asset_type = try? container.decodeIfPresent(String.self, forKey: .asset_type)
+        brand = try? container.decodeIfPresent(String.self, forKey: .brand)
+        unit = try? container.decodeIfPresent(String.self, forKey: .unit)
+        warehouse_name = try? container.decodeIfPresent(String.self, forKey: .warehouse_name)
+        physical_status = try? container.decodeIfPresent(String.self, forKey: .physical_status)
+        current_status = try? container.decodeIfPresent(String.self, forKey: .current_status)
+        serial_number = try? container.decodeIfPresent(String.self, forKey: .serial_number)
+        supplier = try? container.decodeIfPresent(String.self, forKey: .supplier)
+        notes = try? container.decodeIfPresent(String.self, forKey: .notes)
+        created_at = try? container.decodeIfPresent(String.self, forKey: .created_at)
+
+        if let sq = try? container.decodeIfPresent(Double.self, forKey: .stock_quantity) {
+            stock_quantity = sq
+        } else if let sqInt = try? container.decodeIfPresent(Int.self, forKey: .stock_quantity) {
+            stock_quantity = Double(sqInt)
+        } else {
+            stock_quantity = 0
+        }
+
+        if let aq = try? container.decodeIfPresent(Double.self, forKey: .allocated_quantity) {
+            allocated_quantity = aq
+        } else if let aqInt = try? container.decodeIfPresent(Int.self, forKey: .allocated_quantity) {
+            allocated_quantity = Double(aqInt)
+        } else {
+            allocated_quantity = 0
+        }
+    }
+}
+

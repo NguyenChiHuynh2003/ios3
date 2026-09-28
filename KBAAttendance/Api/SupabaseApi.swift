@@ -260,5 +260,17 @@ actor SupabaseApi {
         }
         return list
     }
+
+    // MARK: - Equipment & Tools APIs
+    func getEquipmentList(limit: Int = 1000) async throws -> [EquipmentItem] {
+        let urlStr = "\(Config.supabaseURL)/rest/v1/asset_master_data?select=id,asset_id,asset_name,asset_type,brand,unit,stock_quantity,allocated_quantity,warehouse_name,physical_status,current_status,serial_number,supplier,notes,created_at&order=asset_name.asc&limit=\(limit)"
+        let url = URL(string: urlStr)!
+        let (data, http) = try await executeAuthed { t in
+            self.makeRequest(url, method: "GET", token: t)
+        }
+        guard (200..<300).contains(http.statusCode) else { return [] }
+        return (try? decoder.decode([EquipmentItem].self, from: data)) ?? []
+    }
 }
+
 

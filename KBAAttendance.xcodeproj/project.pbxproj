@@ -24,6 +24,7 @@
 		B1000004B000000000000004 /* ChatListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000004B000000000000004 /* ChatListScreen.swift */; };
 		B1000005B000000000000005 /* ChatRoomScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000005B000000000000005 /* ChatRoomScreen.swift */; };
 		B1000006B000000000000006 /* NewChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000006B000000000000006 /* NewChatScreen.swift */; };
+		B1000007B000000000000007 /* EquipmentListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000007B000000000000007 /* EquipmentListScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		A1000004B000000000000004 /* ChatListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListScreen.swift; sourceTree = "<group>"; };
 		A1000005B000000000000005 /* ChatRoomScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomScreen.swift; sourceTree = "<group>"; };
 		A1000006B000000000000006 /* NewChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatScreen.swift; sourceTree = "<group>"; };
+		A1000007B000000000000007 /* EquipmentListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentListScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				A1000004B000000000000004 /* ChatListScreen.swift */,
 				A1000005B000000000000005 /* ChatRoomScreen.swift */,
 				A1000006B000000000000006 /* NewChatScreen.swift */,
+				A1000007B000000000000007 /* EquipmentListScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				B1000004B000000000000004 /* ChatListScreen.swift in Sources */,
 				B1000005B000000000000005 /* ChatRoomScreen.swift in Sources */,
 				B1000006B000000000000006 /* NewChatScreen.swift in Sources */,
+				B1000007B000000000000007 /* EquipmentListScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

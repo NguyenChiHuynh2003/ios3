@@ -93,6 +93,9 @@ struct HomeScreen: View {
                     NavigationLink(destination: ChatListScreen()) {
                         navRow(icon: "bubble.left.and.bubble.right", title: "Chat nội bộ", sub: "Trò chuyện với đồng nghiệp")
                     }
+                    NavigationLink(destination: EquipmentListScreen()) {
+                        navRow(icon: "wrench.and.screwdriver", title: "Công cụ dụng cụ", sub: "Xem và tra cứu CCDC, thiết bị")
+                    }
                     NavigationLink(destination: GuideScreen()) {
                         navRow(icon: "questionmark.circle", title: "Hướng dẫn sử dụng", sub: "Cách dùng app KBA Chấm công")
                     }
