@@ -162,8 +162,7 @@ struct EquipmentListScreen: View {
             selectedTypeFilter = value
         }) {
             Text(title)
-                .font(.caption)
-                .fontWeight(isSelected ? .semibold : .regular)
+                .font(.system(size: 13, weight: isSelected ? .semibold : .regular))
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
                 .background(isSelected ? Color(red: 0.07, green: 0.45, blue: 0.20) : Color(.secondarySystemBackground))
@@ -364,8 +363,7 @@ struct EquipmentDetailView: View {
                 .foregroundColor(.secondary)
             Spacer()
             Text(value)
-                .font(.subheadline)
-                .fontWeight(.medium)
+                .font(.system(size: 15, weight: .medium))
                 .multilineTextAlignment(.trailing)
         }
     }

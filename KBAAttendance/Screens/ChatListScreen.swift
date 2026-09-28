@@ -89,7 +89,7 @@ struct ChatListScreen: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: NewChatScreen()) {
                     Image(systemName: "plus")
-                        .font(.body.weight(.bold))
+                        .font(.system(size: 17, weight: .bold))
                 }
             }
         }

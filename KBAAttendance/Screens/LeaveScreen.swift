@@ -102,7 +102,7 @@ struct LeaveScreen: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink(destination: CreateLeaveScreen()) {
                     Image(systemName: "plus")
-                        .font(.body.weight(.semibold))
+                        .font(.system(size: 17, weight: .semibold))
                 }
             }
         }

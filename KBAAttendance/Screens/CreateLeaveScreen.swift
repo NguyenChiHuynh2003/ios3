@@ -223,8 +223,7 @@ struct CreateLeaveScreen: View {
             endDate = startDate
         }) {
             Text(title)
-                .font(.subheadline)
-                .fontWeight(isSelected ? .semibold : .regular)
+                .font(.system(size: 15, weight: isSelected ? .semibold : .regular))
                 .padding(.horizontal, 14)
                 .padding(.vertical, 8)
                 .background(isSelected ? Color(red: 0.07, green: 0.45, blue: 0.20).opacity(0.15) : Color(.secondarySystemBackground))

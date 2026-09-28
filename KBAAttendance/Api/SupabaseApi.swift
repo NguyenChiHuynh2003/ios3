@@ -234,7 +234,7 @@ actor SupabaseApi {
     func sendMessage(payload: ChatSendPayload) async throws -> Bool {
         let url = URL(string: "\(Config.supabaseURL)/rest/v1/chat_messages")!
         let body = try encoder.encode(payload)
-        let (data, http) = try await executeAuthed { t in
+        let (_, http) = try await executeAuthed { t in
             self.makeRequest(url, method: "POST", token: t, body: body, prefer: "return=minimal")
         }
         return (200..<300).contains(http.statusCode)

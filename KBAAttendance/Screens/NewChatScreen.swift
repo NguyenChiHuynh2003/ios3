@@ -125,14 +125,14 @@ struct NewChatScreen: View {
         .navigationTitle(isGroupMode ? "Tạo nhóm chat" : "Cuộc trò chuyện mới")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            if isGroupMode {
-                ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if isGroupMode {
                     Button(action: createGroup) {
                         if isBusy {
                             ProgressView()
                         } else {
                             Image(systemName: "checkmark")
-                                .font(.body.weight(.bold))
+                                .font(.system(size: 17, weight: .bold))
                         }
                     }
                     .disabled(isBusy || selectedUserIds.count < 2 || groupName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
