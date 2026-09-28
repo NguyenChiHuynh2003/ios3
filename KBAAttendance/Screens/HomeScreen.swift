@@ -28,6 +28,7 @@ private let displayFmt: DateFormatter = {
 
 struct HomeScreen: View {
     @EnvironmentObject var store: SessionStore
+    @EnvironmentObject var chatSync: ChatSyncService
     @State private var today: AttendanceRecord?
     @State private var loading = false
     @State private var msg: String?
@@ -91,7 +92,7 @@ struct HomeScreen: View {
                         navRow(icon: "clock.arrow.circlepath", title: "Lịch sử chấm công", sub: "Tháng hiện tại")
                     }
                     NavigationLink(destination: ChatListScreen()) {
-                        navRow(icon: "bubble.left.and.bubble.right", title: "Chat nội bộ", sub: "Trò chuyện với đồng nghiệp")
+                        navRow(icon: "bubble.left.and.bubble.right", title: "Chat nội bộ", sub: "Trò chuyện với đồng nghiệp", badge: chatSync.totalUnread)
                     }
                     NavigationLink(destination: EquipmentListScreen()) {
                         navRow(icon: "wrench.and.screwdriver", title: "Công cụ dụng cụ", sub: "Xem và tra cứu CCDC, thiết bị")
@@ -116,7 +117,7 @@ struct HomeScreen: View {
         .navigationViewStyle(.stack)
     }
 
-    private func navRow(icon: String, title: String, sub: String) -> some View {
+    private func navRow(icon: String, title: String, sub: String, badge: Int = 0) -> some View {
         HStack(spacing: 12) {
             Image(systemName: icon).font(.title2).foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
             VStack(alignment: .leading) {
@@ -124,6 +125,16 @@ struct HomeScreen: View {
                 Text(sub).font(.caption).foregroundColor(.secondary)
             }
             Spacer()
+            if badge > 0 {
+                Text("\(badge)")
+                    .font(.caption2)
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(Color.red)
+                    .clipShape(Capsule())
+            }
             Image(systemName: "chevron.right").foregroundColor(.secondary)
         }
         .padding()

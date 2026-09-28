@@ -66,8 +66,12 @@ struct ChatRoomScreen: View {
         .task {
             await pollMessages()
         }
+        .onAppear {
+            ChatSyncService.shared.currentActiveRoomId = conversationId
+        }
         .onDisappear {
             isPolling = false
+            ChatSyncService.shared.currentActiveRoomId = nil
         }
     }
 

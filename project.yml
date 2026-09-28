@@ -34,6 +34,10 @@ targets:
           - vi
           - en
         CFBundleDevelopmentRegion: vi
+        UIBackgroundModes:
+          - fetch
+          - remote-notification
+          - audio
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: vn.kba2018.attendance

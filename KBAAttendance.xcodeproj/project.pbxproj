@@ -25,6 +25,8 @@
 		B1000005B000000000000005 /* ChatRoomScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000005B000000000000005 /* ChatRoomScreen.swift */; };
 		B1000006B000000000000006 /* NewChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000006B000000000000006 /* NewChatScreen.swift */; };
 		B1000007B000000000000007 /* EquipmentListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000007B000000000000007 /* EquipmentListScreen.swift */; };
+		B1000008B000000000000008 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000008B000000000000008 /* NotificationManager.swift */; };
+		B1000009B000000000000009 /* ChatSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000009B000000000000009 /* ChatSyncService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		A1000005B000000000000005 /* ChatRoomScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomScreen.swift; sourceTree = "<group>"; };
 		A1000006B000000000000006 /* NewChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatScreen.swift; sourceTree = "<group>"; };
 		A1000007B000000000000007 /* EquipmentListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentListScreen.swift; sourceTree = "<group>"; };
+		A1000008B000000000000008 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		A1000009B000000000000009 /* ChatSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSyncService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 				53E40A5C28F2F2B7CC67DC26 /* SessionStore.swift */,
 				A1000001B000000000000001 /* SoundManager.swift */,
 				A1000002B000000000000002 /* message_sound.mp3 */,
+				A1000008B000000000000008 /* NotificationManager.swift */,
+				A1000009B000000000000009 /* ChatSyncService.swift */,
 				90506DDD11CE663CE24A7A5F /* Api */,
 				D61F0ED9BCD8264F492454E8 /* Screens */,
 				CFDBAC21689581B04CB7ABB5 /* Assets.xcassets */,
@@ -206,6 +212,8 @@
 				B1000005B000000000000005 /* ChatRoomScreen.swift in Sources */,
 				B1000006B000000000000006 /* NewChatScreen.swift in Sources */,
 				B1000007B000000000000007 /* EquipmentListScreen.swift in Sources */,
+				B1000008B000000000000008 /* NotificationManager.swift in Sources */,
+				B1000009B000000000000009 /* ChatSyncService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
