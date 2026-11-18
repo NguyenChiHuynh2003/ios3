@@ -61,7 +61,7 @@ struct ProjectListScreen: View {
                     Image(systemName: "lock.circle.fill")
                         .font(.system(size: 60))
                         .foregroundColor(.red)
-                    Text("Không có quyền truy cập").font(.headline).fontWeight(.bold)
+                    Text("Không có quyền truy cập").bold().font(.headline)
                     Text("Bạn chưa được cấp quyền xem Quản lý dự án. Vui lòng liên hệ quản trị viên.")
                         .font(.footnote)
                         .foregroundColor(.secondary)
@@ -217,7 +217,8 @@ private struct ProjectTabButton: View {
         Button(action: action) {
             VStack(spacing: 6) {
                 Text(title)
-                    .font(.subheadline).fontWeight(.bold)
+                    .bold()
+                    .font(.subheadline)
                     .foregroundColor(isSelected ? Color(red: 0.07, green: 0.45, blue: 0.20) : .secondary)
                 Rectangle()
                     .fill(isSelected ? Color(red: 0.07, green: 0.45, blue: 0.20) : Color.clear)
@@ -236,7 +237,8 @@ private struct ProjectChipButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.footnote).fontWeight(.bold)
+                .bold()
+                .font(.footnote)
                 .padding(.horizontal, 12).padding(.vertical, 6)
                 .background(isSelected ? Color(red: 0.07, green: 0.45, blue: 0.20) : Color(.systemBackground))
                 .foregroundColor(isSelected ? .white : .primary)
@@ -271,7 +273,8 @@ private struct ProjectCardView: View {
             HStack {
                 let st = statusInfo
                 Text(st.0)
-                    .font(.caption2).fontWeight(.bold)
+                    .bold()
+                    .font(.caption2)
                     .padding(.horizontal, 8).padding(.vertical, 3)
                     .background(st.2).foregroundColor(st.1)
                     .cornerRadius(6)
@@ -280,7 +283,8 @@ private struct ProjectCardView: View {
 
                 if isMember {
                     Text("Tham gia")
-                        .font(.caption2).fontWeight(.bold)
+                        .bold()
+                        .font(.caption2)
                         .padding(.horizontal, 8).padding(.vertical, 3)
                         .background(Color(red: 0.86, green: 0.95, blue: 0.88))
                         .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
@@ -311,7 +315,7 @@ private struct ProjectCardView: View {
                 }
                 if let bud = project.budget, !bud.isEmpty {
                     Spacer()
-                    Text("NS: \(bud)").font(.caption).fontWeight(.bold).foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
+                    Text("NS: \(bud)").bold().font(.caption).foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                 }
             }
 

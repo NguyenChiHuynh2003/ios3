@@ -43,12 +43,13 @@ struct ProjectDetailScreen: View {
                             Spacer()
                             if let bud = p.budget, !bud.isEmpty {
                                 Text("NS: \(bud)")
-                                    .font(.caption).fontWeight(.bold)
+                                    .bold()
+                                    .font(.caption)
                                     .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                             }
                         }
 
-                        Text(p.name).font(.title3).fontWeight(.bold)
+                        Text(p.name).bold().font(.title3)
 
                         if let loc = p.location, !loc.isEmpty {
                             HStack(spacing: 6) {
@@ -87,7 +88,7 @@ struct ProjectDetailScreen: View {
                                 Button(action: { showAddSubDialog = true }) {
                                     HStack(spacing: 4) {
                                         Image(systemName: "plus.circle.fill")
-                                        Text("Thêm").fontWeight(.bold)
+                                        Text("Thêm").bold()
                                     }
                                     .font(.caption)
                                     .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
@@ -104,7 +105,7 @@ struct ProjectDetailScreen: View {
                                 ForEach(subProjects) { sub in
                                     HStack(alignment: .top) {
                                         VStack(alignment: .leading, spacing: 2) {
-                                            Text(sub.name).font(.subheadline).fontWeight(.bold)
+                                            Text(sub.name).bold().font(.subheadline)
                                             if let d = sub.description, !d.isEmpty {
                                                 Text(d).font(.caption).foregroundColor(.secondary)
                                             }
@@ -151,7 +152,7 @@ struct ProjectDetailScreen: View {
                                             .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                                         VStack(alignment: .leading, spacing: 2) {
                                             let name = m.manual_name ?? (m.user_id.flatMap { memberNames[$0] }) ?? "Thành viên"
-                                            Text(name).font(.subheadline).fontWeight(.bold)
+                                            Text(name).bold().font(.subheadline)
                                             let roleStr = [m.role, m.position, m.department].compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " • ")
                                             if !roleStr.isEmpty {
                                                 Text(roleStr).font(.caption).foregroundColor(.secondary)
@@ -185,14 +186,15 @@ struct ProjectDetailScreen: View {
                                     NavigationLink(destination: TaskDetailScreen(taskId: task.id)) {
                                         HStack {
                                             VStack(alignment: .leading, spacing: 4) {
-                                                Text(task.title).font(.subheadline).fontWeight(.bold).foregroundColor(.primary)
+                                                Text(task.title).bold().font(.subheadline).foregroundColor(.primary)
                                                 if let due = task.due_date, !due.isEmpty {
                                                     Text("Hạn: \(due)").font(.caption).foregroundColor(.secondary)
                                                 }
                                             }
                                             Spacer()
                                             Text("\(task.progress)%")
-                                                .font(.caption).fontWeight(.bold)
+                                                .bold()
+                                                .font(.caption)
                                                 .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                                         }
                                         .padding(10)
@@ -335,7 +337,8 @@ struct ProjectDetailScreen: View {
             info = ("Đang chạy", Color(red: 0.1, green: 0.45, blue: 0.85), Color(red: 0.9, green: 0.94, blue: 1.0))
         }
         return Text(info.0)
-            .font(.caption2).fontWeight(.bold)
+            .bold()
+            .font(.caption2)
             .padding(.horizontal, 8).padding(.vertical, 3)
             .background(info.2).foregroundColor(info.1)
             .cornerRadius(6)

@@ -201,8 +201,8 @@ private struct EquipmentRow: View {
                         .lineLimit(2)
                     HStack(spacing: 8) {
                         Text(item.asset_id)
+                            .bold()
                             .font(.caption)
-                            .fontWeight(.bold)
                             .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                         if let brand = item.brand, !brand.isEmpty {
                             Text("• \(brand)")
@@ -214,8 +214,8 @@ private struct EquipmentRow: View {
                 Spacer()
                 let status = statusDisplay(item.physical_status ?? item.current_status)
                 Text(status.label)
+                    .bold()
                     .font(.caption2)
-                    .fontWeight(.bold)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 3)
                     .background(status.color.opacity(0.15))
@@ -278,8 +278,8 @@ struct EquipmentDetailView: View {
                     HStack {
                         let status = statusDisplay(item.physical_status ?? item.current_status)
                         Text(status.label)
+                            .bold()
                             .font(.caption)
-                            .fontWeight(.bold)
                             .padding(.horizontal, 10)
                             .padding(.vertical, 4)
                             .background(status.color.opacity(0.15))
@@ -298,12 +298,12 @@ struct EquipmentDetailView: View {
                     }
 
                     Text(item.asset_name)
+                        .bold()
                         .font(.title3)
-                        .fontWeight(.bold)
 
                     Text(item.asset_id)
+                        .bold()
                         .font(.subheadline)
-                        .fontWeight(.bold)
                         .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                 }
                 .padding()

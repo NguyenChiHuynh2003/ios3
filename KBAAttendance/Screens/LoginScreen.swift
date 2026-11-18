@@ -16,7 +16,7 @@ struct LoginScreen: View {
                         .scaledToFit()
                         .frame(width: 140, height: 140)
                         .padding(.top, 24)
-                    Text("Đăng nhập").font(.title).fontWeight(.bold)
+                    Text("Đăng nhập").bold().font(.title)
 
                     TextField("Email", text: $email)
                         .keyboardType(.emailAddress)
@@ -34,7 +34,7 @@ struct LoginScreen: View {
                     Button(action: signIn) {
                         HStack {
                             if loading { ProgressView().tint(.white) }
-                            Text("Đăng nhập").fontWeight(.bold)
+                            Text("Đăng nhập").bold()
                         }
                         .frame(maxWidth: .infinity, minHeight: 48)
                         .background((email.isEmpty || password.isEmpty || loading) ? Color.gray : Color(red: 0.07, green: 0.45, blue: 0.20))

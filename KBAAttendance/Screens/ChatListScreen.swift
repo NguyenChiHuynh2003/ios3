@@ -45,8 +45,8 @@ struct ChatListScreen: View {
                                     .fill(Color(red: 0.07, green: 0.45, blue: 0.20).opacity(0.15))
                                     .frame(width: 48, height: 48)
                                 Text(String(title.prefix(1)).uppercased())
+                                    .bold()
                                     .font(.headline)
-                                    .fontWeight(.bold)
                                     .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                             }
 
@@ -68,8 +68,8 @@ struct ChatListScreen: View {
                             // Unread badge
                             if let unread = c.unread_count, unread > 0 {
                                 Text("\(unread)")
+                                    .bold()
                                     .font(.caption2)
-                                    .fontWeight(.bold)
                                     .foregroundColor(.white)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)

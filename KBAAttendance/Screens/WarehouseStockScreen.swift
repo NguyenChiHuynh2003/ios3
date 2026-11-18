@@ -186,8 +186,8 @@ private struct FilterButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
+                .bold()
                 .font(.footnote)
-                .fontWeight(.bold)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
                 .background(isSelected ? Color(red: 0.07, green: 0.45, blue: 0.20) : Color(.systemBackground))
@@ -209,7 +209,7 @@ private struct SummaryBadge: View {
     var body: some View {
         HStack(spacing: 4) {
             Text("\(title):").font(.caption).foregroundColor(.secondary)
-            Text("\(count)").font(.caption).fontWeight(.bold).foregroundColor(color)
+            Text("\(count)").bold().font(.caption).foregroundColor(color)
         }
         .padding(.horizontal, 8)
         .padding(.vertical, 4)
@@ -226,7 +226,7 @@ private struct WarehouseStockCard: View {
             HStack {
                 HStack(spacing: 4) {
                     Image(systemName: "building.2.crop.list").font(.caption)
-                    Text(item.warehouse_name).font(.caption).fontWeight(.bold)
+                    Text(item.warehouse_name).bold().font(.caption)
                 }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 3)
@@ -238,7 +238,8 @@ private struct WarehouseStockCard: View {
                 if item.quantity > 0 {
                     let formatted = item.quantity.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", item.quantity) : String(format: "%.2f", item.quantity)
                     Text("Còn \(formatted) \(item.asset?.unit ?? "cái")")
-                        .font(.caption).fontWeight(.bold)
+                        .bold()
+                        .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 3)
                         .background(Color(red: 0.86, green: 0.95, blue: 0.88))
@@ -246,7 +247,8 @@ private struct WarehouseStockCard: View {
                         .cornerRadius(6)
                 } else {
                     Text("Hết hàng")
-                        .font(.caption).fontWeight(.bold)
+                        .bold()
+                        .font(.caption)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 3)
                         .background(Color(red: 1.0, green: 0.9, blue: 0.9))

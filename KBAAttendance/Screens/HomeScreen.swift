@@ -42,7 +42,7 @@ struct HomeScreen: View {
                     // Greeting card
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Xin chào,").font(.caption).foregroundColor(.secondary)
-                        Text(store.session.employeeName ?? "...").font(.title3).fontWeight(.bold)
+                        Text(store.session.employeeName ?? "...").bold().font(.title3)
                         let sub = [store.session.position, store.session.department].compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " • ")
                         if !sub.isEmpty { Text(sub).font(.caption).foregroundColor(.secondary) }
                         Text(displayFmt.string(from: Date()).capitalized).font(.caption).padding(.top, 4)
@@ -69,7 +69,7 @@ struct HomeScreen: View {
                         Button(action: doCheckIn) {
                             HStack {
                                 if loading { ProgressView().tint(.white) }
-                                Text(today == nil ? "Chấm công" : "Đã chấm công hôm nay").fontWeight(.bold)
+                                Text(today == nil ? "Chấm công" : "Đã chấm công hôm nay").bold()
                             }
                             .frame(maxWidth: .infinity, minHeight: 48)
                             .background(today != nil ? Color.gray : Color(red: 0.07, green: 0.45, blue: 0.20))
@@ -141,8 +141,8 @@ struct HomeScreen: View {
                             .scaledToFit()
                             .frame(width: 28, height: 28)
                         Text("KBA Chấm công")
+                            .bold()
                             .font(.headline)
-                            .fontWeight(.bold)
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -164,14 +164,14 @@ struct HomeScreen: View {
             Image(systemName: icon).font(.title2).foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                 .frame(width: 28)
             VStack(alignment: .leading, spacing: 2) {
-                Text(title).font(.body).fontWeight(.bold).foregroundColor(.primary)
+                Text(title).bold().font(.body).foregroundColor(.primary)
                 Text(sub).font(.caption).foregroundColor(.secondary)
             }
             Spacer()
             if badge > 0 {
                 Text("\(badge)")
+                    .bold()
                     .font(.caption2)
-                    .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)

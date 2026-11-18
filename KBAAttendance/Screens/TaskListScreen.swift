@@ -194,7 +194,7 @@ struct TaskListScreen: View {
             Button(action: { showCreateTask = true }) {
                 HStack(spacing: 6) {
                     Image(systemName: "plus")
-                    Text("Giao việc").fontWeight(.bold)
+                    Text("Giao việc").bold()
                 }
                 .font(.headline)
                 .padding(.horizontal, 20)
@@ -276,8 +276,8 @@ private struct TabItemButton: View {
         Button(action: action) {
             VStack(spacing: 6) {
                 Text(title)
+                    .bold()
                     .font(.subheadline)
-                    .fontWeight(.bold)
                     .foregroundColor(isSelected ? Color(red: 0.07, green: 0.45, blue: 0.20) : .secondary)
                 Rectangle()
                     .fill(isSelected ? Color(red: 0.07, green: 0.45, blue: 0.20) : Color.clear)
@@ -296,8 +296,8 @@ private struct FilterChipButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
+                .bold()
                 .font(.footnote)
-                .fontWeight(.bold)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)
                 .background(isSelected ? Color(red: 0.07, green: 0.45, blue: 0.20) : Color(.systemBackground))
@@ -353,8 +353,8 @@ private struct TaskCardView: View {
             HStack {
                 let p = priorityInfo
                 Text(p.0)
+                    .bold()
                     .font(.caption2)
-                    .fontWeight(.bold)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 3)
                     .background(p.2)
@@ -365,8 +365,8 @@ private struct TaskCardView: View {
 
                 let s = statusInfo
                 Text(s.0)
+                    .bold()
                     .font(.caption2)
-                    .fontWeight(.bold)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 3)
                     .background(s.2)
@@ -384,7 +384,7 @@ private struct TaskCardView: View {
             if let proj = task.project_name, !proj.isEmpty {
                 HStack(spacing: 4) {
                     Image(systemName: "mappin.and.ellipse").font(.caption)
-                    Text(proj).font(.caption).fontWeight(.bold)
+                    Text(proj).bold().font(.caption)
                 }
                 .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
             }
@@ -416,7 +416,7 @@ private struct TaskCardView: View {
                 HStack {
                     Text("Tiến độ:").font(.caption2).foregroundColor(.secondary)
                     Spacer()
-                    Text("\(task.progress)%").font(.caption2).fontWeight(.bold).foregroundColor(statusInfo.1)
+                    Text("\(task.progress)%").bold().font(.caption2).foregroundColor(statusInfo.1)
                 }
                 GeometryReader { geo in
                     ZStack(alignment: .leading) {
@@ -438,8 +438,8 @@ private struct TaskCardView: View {
                 HStack(spacing: 12) {
                     Button(action: onDecline) {
                         Text("Từ chối")
+                            .bold()
                             .font(.footnote)
-                            .fontWeight(.bold)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 8)
                             .foregroundColor(.red)
@@ -448,8 +448,8 @@ private struct TaskCardView: View {
 
                     Button(action: onAccept) {
                         Text("Nhận việc")
+                            .bold()
                             .font(.footnote)
-                            .fontWeight(.bold)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 8)
                             .background(Color(red: 0.07, green: 0.45, blue: 0.20))
