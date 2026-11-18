@@ -216,7 +216,7 @@ struct HomeScreen: View {
                 off_site: offSite
             )
             do {
-                _ = try await SupabaseApi.shared.checkIn(rec)
+                _ = try await SupabaseApi.shared.checkIn(record: rec)
                 await MainActor.run {
                     self.msg = "Đã chấm công lúc \(now) (giờ ra mặc định 17:00)"
                     self.today = rec
