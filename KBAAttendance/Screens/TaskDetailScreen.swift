@@ -1,4 +1,4 @@
-import SwiftUI
+﻿import SwiftUI
 
 struct TaskDetailScreen: View {
     let taskId: String
@@ -73,12 +73,12 @@ struct TaskDetailScreen: View {
 
                                 Text(t.title)
                                     .font(.title3)
-                                    .bold()
+                                    .fontWeight(.bold)
 
                                 if let proj = t.project_name, !proj.isEmpty {
                                     HStack(spacing: 4) {
                                         Image(systemName: "mappin.and.ellipse")
-                                        Text(proj).bold()
+                                        Text(proj).fontWeight(.bold)
                                     }
                                     .font(.subheadline)
                                     .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
@@ -91,20 +91,20 @@ struct TaskDetailScreen: View {
                                     HStack {
                                         Text("Phụ trách chính:").font(.caption).foregroundColor(.secondary)
                                         Spacer()
-                                        Text(ownerName).font(.caption).bold()
+                                        Text(ownerName).font(.caption).fontWeight(.bold)
                                     }
                                     if !collaboratorNames.isEmpty {
                                         HStack {
                                             Text("Người phối hợp:").font(.caption).foregroundColor(.secondary)
                                             Spacer()
-                                            Text(collaboratorNames.joined(separator: ", ")).font(.caption).bold()
+                                            Text(collaboratorNames.joined(separator: ", ")).font(.caption).fontWeight(.bold)
                                         }
                                     }
                                     if let due = t.due_date, !due.isEmpty {
                                         HStack {
                                             Text("Hạn hoàn thành:").font(.caption).foregroundColor(.secondary)
                                             Spacer()
-                                            Text(due).font(.caption).bold()
+                                            Text(due).font(.caption).fontWeight(.bold)
                                         }
                                     }
                                     if let created = t.created_date, !created.isEmpty {
@@ -119,7 +119,7 @@ struct TaskDetailScreen: View {
                                 if let desc = t.description, !desc.isEmpty {
                                     Divider()
                                     VStack(alignment: .leading, spacing: 4) {
-                                        Text("Mô tả:").font(.caption).bold().foregroundColor(.secondary)
+                                        Text("Mô tả:").font(.caption).fontWeight(.bold).foregroundColor(.secondary)
                                         Text(desc).font(.body)
                                     }
                                 }
@@ -127,7 +127,7 @@ struct TaskDetailScreen: View {
                                 if let notes = t.notes, !notes.isEmpty {
                                     Divider()
                                     VStack(alignment: .leading, spacing: 4) {
-                                        Text("Ghi chú:").font(.caption).bold().foregroundColor(.secondary)
+                                        Text("Ghi chú:").font(.caption).fontWeight(.bold).foregroundColor(.secondary)
                                         Text(notes).font(.caption).foregroundColor(.secondary)
                                     }
                                 }
@@ -141,7 +141,7 @@ struct TaskDetailScreen: View {
                                         HStack(spacing: 12) {
                                             Button(action: { showDeclineDialog = true }) {
                                                 Text("Từ chối")
-                                                    .font(.footnote).bold()
+                                                    .font(.footnote).fontWeight(.bold)
                                                     .frame(maxWidth: .infinity)
                                                     .padding(.vertical, 8)
                                                     .foregroundColor(.red)
@@ -150,7 +150,7 @@ struct TaskDetailScreen: View {
 
                                             Button(action: { respondAcceptance(accepted: true, note: nil) }) {
                                                 Text("Tiếp nhận việc")
-                                                    .font(.footnote).bold()
+                                                    .font(.footnote).fontWeight(.bold)
                                                     .frame(maxWidth: .infinity)
                                                     .padding(.vertical, 8)
                                                     .background(Color(red: 0.07, green: 0.45, blue: 0.20))
@@ -166,7 +166,7 @@ struct TaskDetailScreen: View {
                                         Text("Trạng thái nhận việc:").font(.caption).foregroundColor(.secondary)
                                         Spacer()
                                         Text(accStatus == "accepted" ? "Đã tiếp nhận" : "Đã từ chối")
-                                            .font(.caption).bold()
+                                            .font(.caption).fontWeight(.bold)
                                             .foregroundColor(accStatus == "accepted" ? Color(red: 0.07, green: 0.55, blue: 0.20) : .red)
                                     }
                                     if let accNote = t.acceptance_note, !accNote.isEmpty {
@@ -183,7 +183,7 @@ struct TaskDetailScreen: View {
                                 HStack {
                                     Text("Tiến độ công việc").font(.headline)
                                     Spacer()
-                                    Text("\(t.progress)%").font(.headline).bold()
+                                    Text("\(t.progress)%").font(.headline).fontWeight(.bold)
                                         .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                                 }
 
@@ -194,7 +194,7 @@ struct TaskDetailScreen: View {
                                             updateProgress(p)
                                         }) {
                                             Text("\(p)%")
-                                                .font(.caption).bold()
+                                                .font(.caption).fontWeight(.bold)
                                                 .frame(maxWidth: .infinity)
                                                 .padding(.vertical, 6)
                                                 .background(t.progress == p ? Color(red: 0.07, green: 0.45, blue: 0.20) : Color(.systemBackground))
@@ -231,7 +231,7 @@ struct TaskDetailScreen: View {
                                                 VStack(alignment: isMe ? .trailing : .leading, spacing: 4) {
                                                     HStack(spacing: 6) {
                                                         Text(rep.reporter_name ?? "Nhân sự")
-                                                            .font(.caption).bold()
+                                                            .font(.caption).fontWeight(.bold)
                                                         if let created = rep.created_at {
                                                             Text(formatIsoTime(created))
                                                                 .font(.system(size: 10))
@@ -422,7 +422,7 @@ struct TaskDetailScreen: View {
         default: info = ("Trung bình", Color(red: 0.15, green: 0.55, blue: 0.25), Color(red: 0.88, green: 0.95, blue: 0.88))
         }
         return Text(info.0)
-            .font(.caption2).bold()
+            .font(.caption2).fontWeight(.bold)
             .padding(.horizontal, 8).padding(.vertical, 3)
             .background(info.2).foregroundColor(info.1)
             .cornerRadius(6)
@@ -438,7 +438,7 @@ struct TaskDetailScreen: View {
         default: info = ("Chờ xử lý", Color(red: 0.9, green: 0.45, blue: 0.0), Color(red: 1.0, green: 0.93, blue: 0.85))
         }
         return Text(info.0)
-            .font(.caption2).bold()
+            .font(.caption2).fontWeight(.bold)
             .padding(.horizontal, 8).padding(.vertical, 3)
             .background(info.2).foregroundColor(info.1)
             .cornerRadius(6)

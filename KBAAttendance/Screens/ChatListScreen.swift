@@ -1,4 +1,4 @@
-import SwiftUI
+﻿import SwiftUI
 
 struct ChatListScreen: View {
     @EnvironmentObject var store: SessionStore
@@ -46,7 +46,7 @@ struct ChatListScreen: View {
                                     .frame(width: 48, height: 48)
                                 Text(String(title.prefix(1)).uppercased())
                                     .font(.headline)
-                                    .bold()
+                                    .fontWeight(.bold)
                                     .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                             }
 
@@ -69,7 +69,7 @@ struct ChatListScreen: View {
                             if let unread = c.unread_count, unread > 0 {
                                 Text("\(unread)")
                                     .font(.caption2)
-                                    .bold()
+                                    .fontWeight(.bold)
                                     .foregroundColor(.white)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)

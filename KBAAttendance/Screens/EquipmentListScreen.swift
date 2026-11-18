@@ -1,4 +1,4 @@
-import SwiftUI
+﻿import SwiftUI
 
 private func statusDisplay(_ status: String?) -> (label: String, color: Color) {
     switch status?.lowercased() {
@@ -202,7 +202,7 @@ private struct EquipmentRow: View {
                     HStack(spacing: 8) {
                         Text(item.asset_id)
                             .font(.caption)
-                            .bold()
+                            .fontWeight(.bold)
                             .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                         if let brand = item.brand, !brand.isEmpty {
                             Text("• \(brand)")
@@ -215,7 +215,7 @@ private struct EquipmentRow: View {
                 let status = statusDisplay(item.physical_status ?? item.current_status)
                 Text(status.label)
                     .font(.caption2)
-                    .bold()
+                    .fontWeight(.bold)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 3)
                     .background(status.color.opacity(0.15))
@@ -279,7 +279,7 @@ struct EquipmentDetailView: View {
                         let status = statusDisplay(item.physical_status ?? item.current_status)
                         Text(status.label)
                             .font(.caption)
-                            .bold()
+                            .fontWeight(.bold)
                             .padding(.horizontal, 10)
                             .padding(.vertical, 4)
                             .background(status.color.opacity(0.15))
@@ -299,11 +299,11 @@ struct EquipmentDetailView: View {
 
                     Text(item.asset_name)
                         .font(.title3)
-                        .bold()
+                        .fontWeight(.bold)
 
                     Text(item.asset_id)
                         .font(.subheadline)
-                        .bold()
+                        .fontWeight(.bold)
                         .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
                 }
                 .padding()

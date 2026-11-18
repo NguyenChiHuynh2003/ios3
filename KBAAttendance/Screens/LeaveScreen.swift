@@ -1,4 +1,4 @@
-import SwiftUI
+﻿import SwiftUI
 
 func fmtDate(_ s: String) -> String {
     guard s.count >= 10 else { return s }
@@ -73,7 +73,7 @@ struct LeaveScreen: View {
                             let (label, color) = statusLabel(lr.status)
                             Text(label)
                                 .font(.caption)
-                                .bold()
+                                .fontWeight(.bold)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 3)
                                 .background(color.opacity(0.15))

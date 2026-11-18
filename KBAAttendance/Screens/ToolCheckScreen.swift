@@ -1,4 +1,4 @@
-import SwiftUI
+﻿import SwiftUI
 
 private let vnTZ = TimeZone(identifier: "Asia/Ho_Chi_Minh")!
 
@@ -16,7 +16,7 @@ private func getWeekRange(weekOffset: Int = 0) -> (Date, Date) {
     cal.firstWeekday = 2 // Monday
 
     let now = Date()
-    var targetDate = cal.date(byAdding: .weekOfYear, value: weekOffset, to: now) ?? now
+    let targetDate = cal.date(byAdding: .weekOfYear, value: weekOffset, to: now) ?? now
     var comps = cal.dateComponents([.yearForWeekOfYear, .weekOfYear], from: targetDate)
     comps.weekday = 2 // Monday
     comps.hour = 0
@@ -106,7 +106,7 @@ struct ToolCheckScreen: View {
                         Text("Tuần \(dateToStr(weekStartAndEnd.0, fmt: "dd/MM")) - \(dateToStr(weekStartAndEnd.1, fmt: "dd/MM/yyyy"))")
                             .font(.headline)
                         if weekOffset == 0 {
-                            Text("Tuần hiện tại").font(.caption).foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20)).bold()
+                            Text("Tuần hiện tại").font(.caption).foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20)).fontWeight(.bold)
                         } else {
                             Button("Về tuần này") { weekOffset = 0 }
                                 .font(.caption).foregroundColor(.blue)
@@ -136,7 +136,7 @@ struct ToolCheckScreen: View {
                             VStack(spacing: 2) {
                                 Text(dayOfWeekVi(d))
                                     .font(.caption2)
-                                    .bold()
+                                    .fontWeight(.bold)
                                 Text(dateToStr(d, fmt: "dd/MM"))
                                     .font(.system(size: 11))
                             }
@@ -160,7 +160,7 @@ struct ToolCheckScreen: View {
                     Image(systemName: "calendar")
                     Text("Ngày: \(dateToStr(selectedDate, fmt: "EEEE, dd/MM/yyyy"))")
                         .font(.footnote)
-                        .bold()
+                        .fontWeight(.bold)
                     Spacer()
                     if !inspectorName.isEmpty {
                         Text("KTV: \(inspectorName)").font(.caption).foregroundColor(.secondary)
@@ -229,7 +229,7 @@ struct ToolCheckScreen: View {
                 NavigationView {
                     Form {
                         Section(header: Text("Thiết bị / Dụng cụ")) {
-                            Text(targetItem.name).bold()
+                            Text(targetItem.name).fontWeight(.bold)
                             if let c = targetItem.code, !c.isEmpty {
                                 Text("Mã: \(c)").font(.caption).foregroundColor(.secondary)
                             }
@@ -245,7 +245,7 @@ struct ToolCheckScreen: View {
                                 saveProjectEntry(item: targetItem, date: selectedDate, projectName: dialogProjectName, note: dialogNote)
                                 showProjectDialog = false
                             }
-                            .bold()
+                            .fontWeight(.bold)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20))
 
@@ -435,7 +435,7 @@ private struct ToolCheckRow: View {
                 } else if let e = entry {
                     if e.in_warehouse {
                         Text("Ở KHO")
-                            .font(.caption2).bold()
+                            .font(.caption2).fontWeight(.bold)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(Color(red: 0.86, green: 0.95, blue: 0.88))
@@ -443,7 +443,7 @@ private struct ToolCheckRow: View {
                             .cornerRadius(6)
                     } else if let p = e.project_name, !p.isEmpty {
                         Text("DỰ ÁN: \(p)")
-                            .font(.caption2).bold()
+                            .font(.caption2).fontWeight(.bold)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
                             .background(Color(red: 0.9, green: 0.94, blue: 1.0))
@@ -476,7 +476,7 @@ private struct ToolCheckRow: View {
                         Image(systemName: (entry?.in_warehouse == true) ? "checkmark.circle.fill" : "circle")
                         Text("Ở KHO")
                             .font(.footnote)
-                            .bold()
+                            .fontWeight(.bold)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
@@ -495,7 +495,7 @@ private struct ToolCheckRow: View {
                         Image(systemName: "building.2")
                         Text((entry?.in_warehouse == false && entry?.project_name != nil) ? "ĐỔI DỰ ÁN" : "DỰ ÁN")
                             .font(.footnote)
-                            .bold()
+                            .fontWeight(.bold)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)

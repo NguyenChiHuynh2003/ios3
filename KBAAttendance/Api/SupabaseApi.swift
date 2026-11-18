@@ -1,4 +1,4 @@
-import Foundation
+﻿import Foundation
 
 enum SupabaseError: Error, LocalizedError {
     case authExpired
@@ -437,7 +437,7 @@ actor SupabaseApi {
         // Try RPC delete_project first
         let rpcUrl = URL(string: "\(Config.supabaseURL)/rest/v1/rpc/delete_project")!
         let rpcBody = try? JSONSerialization.data(withJSONObject: ["project_id_to_delete": projectId])
-        if let (data, http) = try? await executeAuthed(makeReq: { t in
+        if let (_, http) = try? await executeAuthed(makeReq: { t in
             self.makeRequest(rpcUrl, method: "POST", token: t, body: rpcBody)
         }), (200..<300).contains(http.statusCode) {
             return true

@@ -1,4 +1,4 @@
-import SwiftUI
+﻿import SwiftUI
 
 struct LoginScreen: View {
     @EnvironmentObject var store: SessionStore
@@ -16,7 +16,7 @@ struct LoginScreen: View {
                         .scaledToFit()
                         .frame(width: 140, height: 140)
                         .padding(.top, 24)
-                    Text("Đăng nhập").font(.title).bold()
+                    Text("Đăng nhập").font(.title).fontWeight(.bold)
 
                     TextField("Email", text: $email)
                         .keyboardType(.emailAddress)
@@ -34,7 +34,7 @@ struct LoginScreen: View {
                     Button(action: signIn) {
                         HStack {
                             if loading { ProgressView().tint(.white) }
-                            Text("Đăng nhập").bold()
+                            Text("Đăng nhập").fontWeight(.bold)
                         }
                         .frame(maxWidth: .infinity, minHeight: 48)
                         .background((email.isEmpty || password.isEmpty || loading) ? Color.gray : Color(red: 0.07, green: 0.45, blue: 0.20))

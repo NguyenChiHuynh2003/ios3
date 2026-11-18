@@ -1,4 +1,4 @@
-import SwiftUI
+﻿import SwiftUI
 
 struct CreateTaskScreen: View {
     var onCreated: (() -> Void)? = nil
@@ -132,7 +132,7 @@ struct CreateTaskScreen: View {
                             if submitting {
                                 ProgressView().tint(.white)
                             }
-                            Text("Tạo nhiệm vụ").bold()
+                            Text("Tạo nhiệm vụ").fontWeight(.bold)
                             Spacer()
                         }
                     }
@@ -262,7 +262,7 @@ private struct CollaboratorsSelectionView: View {
                         }
                         Spacer()
                         if selectedIds.contains(emp.id) {
-                            Image(systemName: "checkmark").foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20)).bold()
+                            Image(systemName: "checkmark").foregroundColor(Color(red: 0.07, green: 0.45, blue: 0.20)).fontWeight(.bold)
                         }
                     }
                 }

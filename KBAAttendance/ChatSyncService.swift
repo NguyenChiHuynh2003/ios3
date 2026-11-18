@@ -1,4 +1,4 @@
-import Foundation
+﻿import Foundation
 import SwiftUI
 import UIKit
 
@@ -24,17 +24,13 @@ final class ChatSyncService: ObservableObject {
             forName: UIApplication.didEnterBackgroundNotification,
             object: nil,
             queue: .main
-        ) { [weak self] _ in
-            self?.handleDidEnterBackground()
-        }
+        ) { [weak self] _ in Task { @MainActor [weak self] in self?.handleDidEnterBackground() } }
 
         NotificationCenter.default.addObserver(
             forName: UIApplication.willEnterForegroundNotification,
             object: nil,
             queue: .main
-        ) { [weak self] _ in
-            self?.handleWillEnterForeground()
-        }
+        ) { [weak self] _ in Task { @MainActor [weak self] in self?.handleWillEnterForeground() } }
     }
 
     func start(userId: String) {
