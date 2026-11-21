@@ -17,7 +17,7 @@ open KBAAttendance.xcodeproj
 Nhấn Run trong Xcode là build được ngay.
 
 ## Cấu hình
-- Bundle ID: `vn.kba2018.attendance`
+- Bundle ID: `com.kba2018.chamcong`
 - Supabase URL & anon key được cấu hình trong `KBAAttendance/Config.swift`.
 
 ## Các tính năng nổi bật (Đồng bộ với Android)

@@ -1,6 +1,6 @@
 name: KBAAttendance
 options:
-  bundleIdPrefix: vn.kba2018
+  bundleIdPrefix: com.kba2018
   deploymentTarget:
     iOS: "15.0"
   createIntermediateGroups: true
@@ -40,7 +40,7 @@ targets:
           - audio
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: vn.kba2018.attendance
+        PRODUCT_BUNDLE_IDENTIFIER: com.kba2018.chamcong
         TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
