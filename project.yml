@@ -8,7 +8,7 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.5"
-    DEVELOPMENT_TEAM: ""
+    DEVELOPMENT_TEAM: "QJ79Z5L58C"
     MARKETING_VERSION: "1.0"
     CURRENT_PROJECT_VERSION: "1"
 targets:
