@@ -3,9 +3,9 @@
 Ứng dụng iOS native viết bằng SwiftUI, dùng chung backend Supabase với app Android KBA. Đồng bộ 100% tính năng và giao diện với app Android.
 
 ## Yêu cầu & Tương thích thiết bị
-- Xcode 14.2 trở lên
+- Xcode 13.0 trở lên
 - **iOS 15.0+**: Hỗ trợ đầy đủ từ **iPhone 6s, iPhone 7, iPhone 8, iPhone X, iPhone 11, iPhone 12, iPhone 13, iPhone 14, iPhone 15, iPhone 16** (các dòng iPhone 12 trở lên chạy iOS 15/16/17/18 đều tương thích 100%).
-- Swift 5.7 (đã tối ưu hoàn toàn cú pháp tương thích iOS 15, không bị lỗi `buildIf` của iOS 16).
+- Swift 5.5 (đã tối ưu hoàn toàn cú pháp tương thích iOS 15 và Xcode 13.0+, không bị lỗi `buildIf` của iOS 16).
 
 ## Mở dự án
 Dự án đã có sẵn `KBAAttendance.xcodeproj` được cấu hình đầy đủ. Sau khi clone, chỉ cần:

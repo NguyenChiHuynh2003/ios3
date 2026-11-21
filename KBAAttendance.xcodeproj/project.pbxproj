@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -173,16 +173,16 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					CFFD53296CF7E828973E1624 = {
-						CreatedOnToolsVersion = 14.2;
+						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
 			buildConfigurationList = 93A93C28DD71F1C9C4F07A29 /* Build configuration list for PBXProject "KBAAttendance" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = vi;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -254,7 +254,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -294,7 +294,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.7;
+				SWIFT_VERSION = 5.5;
 				ENABLE_TESTABILITY = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -315,7 +315,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -355,7 +355,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.7;
+				SWIFT_VERSION = 5.5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				MTL_ENABLE_DEBUG_INFO = NO;
